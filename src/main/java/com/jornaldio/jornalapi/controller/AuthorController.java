@@ -50,4 +50,20 @@ public class AuthorController {
         var result = authorMapper.toAuthorDTO(author);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
+
+    @PutMapping("/{id}")
+    @ApiOperation("Update author by ID")
+    public ResponseEntity<AuthorDTO> update(@PathVariable String id, @RequestBody AuthorCreateDTO dto) {
+        var authorCreate = authorMapper.toAuthorCreate(dto);
+        var author = authorService.update(id, authorCreate);
+        var result = authorMapper.toAuthorDTO(author);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @DeleteMapping("/{id}")
+    @ApiOperation("Delete one author by ID")
+    public ResponseEntity delete(@PathVariable String id) {
+        authorService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
