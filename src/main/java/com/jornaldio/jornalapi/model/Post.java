@@ -1,14 +1,22 @@
 package com.jornaldio.jornalapi.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Entity
 public class Post {
+    @Id
     private Long id;
     private String name;
+    @ManyToOne
     private Author postAuthor;
     private String content;
-    private List<String> images;
+    @OneToMany
+    private List<Image> postImages;
+    @OneToMany
     private List<Page> postPages;
     private LocalDateTime created;
     private LocalDateTime modified;
@@ -45,12 +53,12 @@ public class Post {
         this.content = content;
     }
 
-    public List<String> getImages() {
-        return images;
+    public List<Image> getPostImages() {
+        return postImages;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public void setPostImages(List<Image> postImages) {
+        this.postImages = postImages;
     }
 
     public List<Page> getPostPages() {

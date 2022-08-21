@@ -2,17 +2,17 @@ package com.jornaldio.jornalapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
-import java.util.List;
+
 @Entity
-public class Page {
+public class Image {
     @Id
     private Long id;
     private String name;
-    private String category;
-    @OneToMany
-    private List<Post> pagePosts;
+    @ManyToOne
+    private Post imagesPost;
+    private String description;
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -32,20 +32,20 @@ public class Page {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public Post getImagesPost() {
+        return imagesPost;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setImagesPost(Post imagesPost) {
+        this.imagesPost = imagesPost;
     }
 
-    public List<Post> getPagePosts() {
-        return pagePosts;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPagePosts(List<Post> pagePosts) {
-        this.pagePosts = pagePosts;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDateTime getCreated() {

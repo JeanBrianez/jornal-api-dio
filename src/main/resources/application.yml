@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/bookstore?useTimezone=true&serverTimezone=UTC&useLegacyDate
+    url: jdbc:postgresql://localhost:5432/jornal?useTimezone=true&serverTimezone=UTC&useLegacyDate
     username: postgres
     password: postgres
   jpa:

@@ -1,5 +1,6 @@
 package com.jornaldio.jornalapi.controller;
 
+import com.jornaldio.jornalapi.AbstractContainerBase;
 import com.jornaldio.jornalapi.controller.dto.AuthorCreateDTO;
 import io.restassured.RestAssured;
 import org.hamcrest.Matchers;
@@ -13,7 +14,7 @@ import org.springframework.http.MediaType;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class AuthorControllerIT {
+class AuthorControllerIT extends AbstractContainerBase {
 
     @LocalServerPort
     private int randomPort;

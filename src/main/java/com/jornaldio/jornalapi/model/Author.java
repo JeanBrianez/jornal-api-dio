@@ -1,14 +1,20 @@
 package com.jornaldio.jornalapi.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Entity
 public class Author {
+    @Id
     private String id;
     private String name;
     private String role;
     private String email;
+    @OneToMany
     private List<Page> authorPages;
+    @OneToMany
     private List<Post> authorPosts;
     private LocalDateTime created;
     private LocalDateTime modified;
