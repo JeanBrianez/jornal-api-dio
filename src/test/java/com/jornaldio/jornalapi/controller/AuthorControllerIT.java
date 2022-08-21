@@ -28,6 +28,8 @@ class AuthorControllerIT extends AbstractContainerBase {
     void whenFindAllThenCheckResult() {
 
         RestAssured.given()
+                .auth()
+                .basic("user", "dio@123456")
                 .when()
                 .get("/author")
                 .then()
@@ -43,6 +45,8 @@ class AuthorControllerIT extends AbstractContainerBase {
         createDTO.setEmail("ok@ok");
 
         RestAssured.given()
+                .auth()
+                .basic("user", "dio@123456")
                 .when()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .body(createDTO)
